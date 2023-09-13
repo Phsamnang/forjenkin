@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 script{
-                    def existImageID= sh(script: 'docker ps -aq --name=\${MY_IMAGE}',returnStdout:true)
+                    def existImageID= sh(script: 'docker ps -aq name=\${MY_IMAGE}',returnStdout:true)
                     echo 'ExistImageID:${existImage}'
                     if(existImage){
                         echo '${extistImage} is removing ...'
