@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools{
-        nodejs 'npm'
-    }
     environment{
         MY_IMAGE='react-image'
     }
