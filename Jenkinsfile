@@ -9,8 +9,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm config set registry https://registry.npmjs.org/'
-                sh 'npm cache clean --force'
                  sh 'docker build -t \${MY_IMAGE} .'
             }
         }
