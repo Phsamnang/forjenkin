@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script{
                 def existImageID= sh(script: 'docker ps -aq -f name="${MY_IMAGE}"',returnStdout:true)
-                    echo 'ExistImageID:'+'\${existImageID}"
+                    echo "ExistImageID:${existImageID}"
                     if(existImageID){
                         echo '${existImageID} is removing ...'
                         sh 'docker rm -f ${MY_IMAGE}'
