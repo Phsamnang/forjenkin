@@ -9,8 +9,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm config set registry https://registry.npmjs.org/'
-                sh 'npm cache clean --force'
                 sh 'docker build -t ${MY_IMAGE} .'
             }
         }
@@ -31,7 +29,7 @@ pipeline {
                        echo 'No existing container'
                     }
                 }
-                sh 'docker run -d -p 3000:80 ${MY_IMAGE}'
+                sh 'docker run -d -p 3000:80 --name ${MY_IMAGE} ${MY_IMAGE}'
             }
         }
     }
