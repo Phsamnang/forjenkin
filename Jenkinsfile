@@ -9,7 +9,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                 sh 'docker build -t \${MY_IMAGE} .'
+                sh 'npm config set registry https://registry.npmjs.org/'
+                sh 'npm cache clean --force'
+                sh 'docker build -t ${MY_IMAGE} .'
             }
         }
         stage('Test') {
@@ -21,9 +23,9 @@ pipeline {
             steps {
                 script{
                 def existImageID= sh(script: 'docker ps -aq -f name="${MY_IMAGE}"',returnStdout:true)
-                    echo 'ExistImageID:${existImage}'
+                    echo 'ExistImageID:'+'${existImageID}'
                     if(existImage){
-                        echo '${extistImage} is removing ...'
+                        echo '${extistImageID} is removing ...'
                         sh 'docker rm -f ${MY_IMAGE}'
                     }else{
                        echo 'No existing container'git 
