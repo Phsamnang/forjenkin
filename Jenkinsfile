@@ -25,9 +25,9 @@ pipeline {
                     echo 'ExistImageID:${existImage}'
                     if(existImage){
                         echo '${extistImage} is removing ...'
-                        sh 'docker rmi -f ${MY_IMAGE}'
+                        sh 'docker rm -f ${MY_IMAGE}'
                     }else{
-                       
+                       echo 'No existing container'git 
                     }
                 }
                 sh 'docker run -d -p 3000:80 ${MY_IMAGE}'
