@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Time from './components/Time';
 
 function App() {
   return (
     <div className="App">
-     <h1>Hello somnang</h1>
-    <h1>updating.....</h1>
+     <Time/>
     </div>
   );
 }
