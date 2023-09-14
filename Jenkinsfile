@@ -25,10 +25,10 @@ pipeline {
                 def existImageID= sh(script: 'docker ps -aq -f name="${MY_IMAGE}"',returnStdout:true)
                     echo 'ExistImageID:'+'${existImageID}'
                     if(existImage){
-                        echo '${extistImageID} is removing ...'
+                        echo '${existImageID} is removing ...'
                         sh 'docker rm -f ${MY_IMAGE}'
                     }else{
-                       echo 'No existing container'git 
+                       echo 'No existing container'
                     }
                 }
                 sh 'docker run -d -p 3000:80 ${MY_IMAGE}'
